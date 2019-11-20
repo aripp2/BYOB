@@ -127,8 +127,8 @@ const beers = [
   },
   {
     brewery_id: '5',
-    beer: 'Farmhouse Blond',
-    style: 'Blond Belgian Ale',
+    beer: 'Farmhouse Blonde',
+    style: 'Blonde Belgian Ale',
     abv: '5.4',
     ibu: null
   },
@@ -184,7 +184,7 @@ const beers = [
   {
     brewery_id: 7,
     beer: 'Iced Coffee Blonde',
-    style: 'Blond-Colored Wheat Ale',
+    style: 'Blonde-Colored Wheat Ale',
     abv: 5.4,
     ibu: 12
   },
@@ -380,7 +380,7 @@ const beers = [
   {
     brewery_id: 15,
     beer: 'Kanaha Blonde Ale',
-    style: 'Blond Ale',
+    style: 'Blonde Ale',
     abv: 4.2,
     ibu: 18
   },
@@ -555,7 +555,7 @@ const beers = [
   {
     brewery_id: 23,
     beer: 'Flamingo Dreams Nitro',
-    style: 'Blond Ale',
+    style: 'Blonde Ale',
     abv: 4.7,
     ibu: 11
   },
@@ -568,192 +568,170 @@ const beers = [
   },
   {
     brewery_id: 24,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
+    beer: 'Fisherman\'s Brown',
+    style: 'Brown Ale',
+    abv: 4.8,
+    ibu: 22
   },
   {
     brewery_id: 24,
+    beer: 'Riverside Kolsch',
+    style: 'Kolsch',
+    abv: 5.2,
+    ibu: 20
+  },
+  {
+    brewery_id: 24,
+    beer: 'Boxcar Red',
+    style: 'Amber Ale',
+    abv: 6.1,
+    ibu: 37
+  },
+  {
+    brewery_id: 25,
+    beer: 'Ginger Pale Ale',
+    style: 'Light Ale',
+    abv: 5.9,
+    ibu: 20
+  },
+  {
+    brewery_id: 25,
+    beer: 'Impeachpricot Blonde',
+    style: 'American Blonde',
+    abv: 5.4,
+    ibu: 15
+  },
+  {
+    brewery_id: 25,
+    beer: 'Coconut Porter',
+    style: 'Robust Porter',
+    abv: 5.9,
+    ibu: 28
+  },
+  {
+    brewery_id: 25,
+    beer: 'Snow Blind',
+    style: 'Double IPA',
+    abv: 8.3,
+    ibu: 95
+  },
+  {
+    brewery_id: 26,
+    beer: 'Deadwood Dunkel',
+    style: 'Munich Dunkel Lager',
+    abv: 6.0,
+    ibu: 15
+  },
+  {
+    brewery_id: 26,
+    beer: 'PugWeizer',
+    style: 'American Light Lager',
+    abv: 4.4,
+    ibu: 9
+  },
+  {
+    brewery_id: 26,
+    beer: 'Peacemaker Pilsner',
+    style: 'Bohenian Pilsner',
+    abv: 5.8,
+    ibu: 21
+  },
+  {
+    brewery_id: 27,
+    beer: 'Cucumber IPA',
+    style: 'American IPA',
+    abv: 4.8,
+    ibu: 50
+  },
+  {
+    brewery_id: 27,
+    beer: '4 Pepper Pilsner',
+    style: 'German Pilsner',
+    abv: 5.5,
+    ibu: 32
+  },
+  {
+    brewery_id: 27,
+    beer: 'Get Some Freshies',
+    style: 'Belgian Blonde',
+    abv: 5.7,
+    ibu: 27
+  },
+  {
+    brewery_id: 27,
+    beer: 'Get To the Choppa!',
+    style: 'Vienna Lager',
+    abv: 6.3,
+    ibu: 25
+  },
+  {
+    brewery_id: 28,
+    beer: 'Fade Out',
+    style: 'Saison Farmhouse Ale',
+    abv: 6.5,
+    ibu: null
+  },
+  {
+    brewery_id: 28,
+    beer: 'The Heebeegeebees',
+    style: 'American IPA',
+    abv: 6.9,
+    ibu: null
+  },
+  {
+    brewery_id: 29,
     beer: '',
     style: '',
     abv: ,
     ibu: 
   },
   {
-    brewery_id: 21,
+    brewery_id: 29,
     beer: '',
     style: '',
     abv: ,
     ibu: 
   },
   {
-    brewery_id: 21,
+    brewery_id: 29,
     beer: '',
     style: '',
     abv: ,
     ibu: 
   },
   {
-    brewery_id: 21,
+    brewery_id: 29,
     beer: '',
     style: '',
     abv: ,
     ibu: 
   },
   {
-    brewery_id: 21,
+    brewery_id: 30,
     beer: '',
     style: '',
     abv: ,
     ibu: 
   },
   {
-    brewery_id: 21,
+    brewery_id: 30,
     beer: '',
     style: '',
     abv: ,
     ibu: 
   },
   {
-    brewery_id: 21,
+    brewery_id: 30,
     beer: '',
     style: '',
     abv: ,
     ibu: 
   },
   {
-    brewery_id: 21,
+    brewery_id: 30,
     beer: '',
     style: '',
     abv: ,
     ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  {
-    brewery_id: 21,
-    beer: '',
-    style: '',
-    abv: ,
-    ibu: 
-  },
-  
+  }
 ]

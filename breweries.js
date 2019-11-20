@@ -139,33 +139,33 @@ const breweries = [
   },
   {
     id: '24',
-    name: '',
-    year_est: '',
-    num_locations: ''
+    name: 'Animas Brewing Company',
+    year_est: '2014',
+    num_locations: '1'
   },
   {
     id: '25',
-    name: '',
-    year_est: '',
-    num_locations: ''
+    name: 'Broken Compass Brewing Company',
+    year_est: '2014',
+    num_locations: '1'
   },
   {
     id: '26',
-    name: '',
-    year_est: '',
-    num_locations: ''
+    name: 'Pug Ryan\'s Brewing Company',
+    year_est: '1975',
+    num_locations: '1'
   },
   {
     id: '27',
-    name: '',
-    year_est: '',
-    num_locations: ''
+    name: 'Highside Brewing Company',
+    year_est: '2014',
+    num_locations: '1'
   },
   {
     id: '28',
-    name: '',
-    year_est: '',
-    num_locations: ''
+    name: 'Outer Range Brewing Company',
+    year_est: '2016',
+    num_locations: '1'
   },
   {
     id: '29',
