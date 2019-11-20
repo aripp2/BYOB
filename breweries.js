@@ -1,182 +1,184 @@
-const breweries = [
+const breweriesData = [
   {
-    id: '1',
+    id: 1,
     name: 'New Belgium Brewery',
-    year_est: '1991',
-    num_locations: '2'
+    yearEst: 1991,
+    numLocations: 2
   },
   {
-    id: '2',
+    id: 2,
     name: 'Oskar Blues Brewery',
-    year_est: '1997',
-    num_locations: '5'
+    yearEst: 1997,
+    numLocations: 5
   },
   {
-    id: '3',
+    id: 3,
     name: 'Deschutes Brewery',
-    year_est: '1988',
-    num_locations: '5'
+    yearEst: 1988,
+    numLocations: 5
   },
   {
-    id: '4',
+    id: 4,
     name: 'Wynkoop Brewing Company',
-    year_est: '1988',
-    num_locations: '1'
+    yearEst: 1988,
+    numLocations: 1
   },
   {
-    id: '5',
+    id: 5,
     name: 'Dillon Dam Brewery',
-    year_est: '1997',
-    num_locations: '1'
+    yearEst: 1997,
+    numLocations: 1
   },
   {
-    id: '6',
+    id: 6,
     name: 'Breckenridge Brewery',
-    year_est: '1990',
-    num_locations: '2'
+    yearEst: 1990,
+    numLocations: 2
   },
   {
-    id: '7',
+    id: 7,
     name: 'Blue Moon Brewing Company',
-    year_est: '1995',
-    num_locations: '1'
+    yearEst: '1995',
+    numLocations: '1'
   },
   {
-    id: '8',
+    id: 8,
     name: 'Great Divide Brewing Company',
-    year_est: '1994',
-    num_locations: '3'
+    yearEst: 1994,
+    numLocations: 3
   },
   {
-    id: '9',
+    id: 9,
     name: 'Durango Brewing Company',
-    year_est: '1990',
-    num_locations: '1'
+    yearEst: 1990,
+    numLocations: 1
   },
   {
-    id: '10',
+    id: 10,
     name: 'McMenamins',
-    year_est: '1983',
-    num_locations: '62'
+    yearEst: 1983,
+    numLocations: 62
   },
   {
-    id: '11',
+    id: 11,
     name: 'SKA Brewing',
-    year_est: '1995',
-    num_locations: '1'
+    yearEst: 1995,
+    numLocations: 1
   },
   {
-    id: '12',
+    id: 12,
     name: 'Steamworks Brewing Company',
-    year_est: '1996',
-    num_locations: '1'
+    yearEst: 1996,
+    numLocations: 1
   },
   {
-    id: '13',
+    id: 13,
     name: 'Widmer Brothers Brewing',
-    year_est: '1984',
-    num_locations: '1'
+    yearEst: 1984,
+    numLocations: 1
   },
   {
-    id: '14',
+    id: 14,
     name: 'Odell Brewing Company',
-    year_est: '1989',
-    num_locations: '2'
+    yearEst: 1989,
+    numLocations: 2
   },
   {
-    id: '15',
+    id: 15,
     name: 'Kona Brewing Company',
-    year_est: '1994',
-    num_locations: '2'
+    yearEst: 1994,
+    numLocations: 2
   },
   {
-    id: '16',
+    id: 16,
     name: 'Avery Brewing Company',
-    year_est: '1993',
-    num_locations: '1'
+    yearEst: 1993,
+    numLocations: 1
   },
   {
-    id: '17',
+    id: 17,
     name: 'Renegade Brewing Company',
-    year_est: '2005',
-    num_locations: '1'
+    yearEst: 2005,
+    numLocations: 1
   },
   {
-    id: '18',
+    id: 18,
     name: 'TRVE Brewing Company',
-    year_est: '2012',
-    num_locations: '1'
+    yearEst: 2012,
+    numLocations: 1
   },
   {
-    id: '19',
+    id: 19,
     name: 'Denver Beer Company',
-    year_est: '2011',
-    num_locations: '3'
+    yearEst: 2011,
+    numLocations: 3
   },
   {
-    id: '20',
+    id: 20,
     name: 'Prost Brewing Company',
-    year_est: '2012',
-    num_locations: '2'
+    yearEst: 2012,
+    numLocations: 2
   },
   {
-    id: '21',
+    id: 21,
     name: 'Sierra Nevada Brewing Company',
-    year_est: '1979',
-    num_locations: '3'
+    yearEst: 1979,
+    numLocations: 3
   },
   {
-    id: '22',
+    id: 22,
     name: 'Alaskan Brewing Company',
-    year_est: '1986',
-    num_locations: '1'
+    yearEst: 1986,
+    numLocations: 1
   },
   {
-    id: '23',
+    id: 23,
     name: 'Left Hand Brewing Company',
-    year_est: '1993',
-    num_locations: '1'
+    yearEst: 1993,
+    numLocations: 1
   },
   {
-    id: '24',
+    id: 24,
     name: 'Animas Brewing Company',
-    year_est: '2014',
-    num_locations: '1'
+    yearEst: 2014,
+    numLocations: 1
   },
   {
-    id: '25',
+    id: 25,
     name: 'Broken Compass Brewing Company',
-    year_est: '2014',
-    num_locations: '1'
+    yearEst: 2014,
+    numLocations: 1
   },
   {
-    id: '26',
+    id: 26,
     name: 'Pug Ryan\'s Brewing Company',
-    year_est: '1975',
-    num_locations: '1'
+    yearEst: 1975,
+    numLocations: 1
   },
   {
-    id: '27',
+    id: 27,
     name: 'Highside Brewing Company',
-    year_est: '2014',
-    num_locations: '1'
+    yearEst: 2014,
+    numLocations: 1
   },
   {
-    id: '28',
+    id: 28,
     name: 'Outer Range Brewing Company',
-    year_est: '2016',
-    num_locations: '1'
+    yearEst: 2016,
+    numLocations: 1
   },
   {
-    id: '29',
-    name: '',
-    year_est: '',
-    num_locations: ''
+    id: 29,
+    name: 'Rock Bottom Brewery',
+    yearEst: 2010,
+    numLocations: 27
   },
   {
-    id: '30',
-    name: '',
-    year_est: '',
-    num_locations: ''
+    id: 30,
+    name: 'The Great Northern Brewing Company',
+    yearEst: 1995,
+    numLocations: 1
   }
-]
+];
+
+module.exports = breweriesData;
