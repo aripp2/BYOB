@@ -107,7 +107,7 @@ const beersData = [
   {
     breweryId: 5,
     beer: 'Hatch Green Chili Ale',
-    style: 'Blone Chili Ale'
+    style: 'Blone Chili Ale',
     abv: 5.3,
     ibu: null
   },
@@ -163,7 +163,7 @@ const beersData = [
   {
     breweryId: 6,
     beer: 'Nitro Vanilla Porter',
-    style: 'Nitrogenated Vanilla Porter'
+    style: 'Nitrogenated Vanilla Porter',
     abv: 5.4,
     ibu: 16
   },
