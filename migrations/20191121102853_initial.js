@@ -13,7 +13,7 @@ exports.up = function(knex) {
       table.increments('id').primary();
       table.string('beer');
       table.string('style');
-      table.integer('abv').unsigned();
+      table.decimal('abv');
       table.integer('ibu').unsigned();
       table.integer('brewery_id').unsigned();
       table.foreign('brewery_id').references('breweries.id')
