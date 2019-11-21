@@ -33,7 +33,7 @@ exports.seed = function(knex) {
       breweriesData.forEach(brewery => {
         breweryPromises.push(createBrewery(knex, brewery))
       })
-      // console.log('breweries', breweryPromises)
+      console.log('breweries', breweryPromises)
       return Promise.all([breweryPromises, beerPromises])
     })
     .catch(error => console.log(`Error seeding data: ${error}`))
