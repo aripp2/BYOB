@@ -188,9 +188,9 @@ const breweriesData = [
   },
   {
     name: 'Blue Moon Brewing Company',
-    yearEst: '1995',
-    numLocations: '1',
-    beer: 
+    yearEst: 1995,
+    numLocations: 1,
+    beers: 
       [{
         beer: 'Belgian White',
         style: 'Belgian-Style Wheat Ale',

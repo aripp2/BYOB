@@ -3,7 +3,6 @@ exports.up = function(knex) {
   return Promise.all([
     knex.schema.createTable('breweries', (table) => {
       table.increments('id').primary();
-      table.integer('brewery_id').unsigned();
       table.string('name');
       table.integer('year_est').unsigned();
       table.integer('num_locations').unsigned();
@@ -22,7 +21,6 @@ exports.up = function(knex) {
       table.timestamps(true, true);
     })
   ])
-  
 };
 
 exports.down = function(knex) {
