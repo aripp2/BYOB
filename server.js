@@ -14,6 +14,10 @@ app.listen(app.get('port'), () => {
   console.log(`App is running on ${app.get('port')}`);
 });
 
+app.get('/', (request, response) => {
+  response.event('Welcome to Brews!');
+}); 
+
 app.get('/api/v1/breweries', (request, response) => {
   database('breweries').select()
     .then((breweries) => {
