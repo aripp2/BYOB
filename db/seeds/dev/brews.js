@@ -9,7 +9,6 @@ const createBrewery = (knex, brewery) => {
   .then(breweryId => {
     let beerPromises = [];
     brewery.beers.forEach(beer => {
-        console.log(beer)
 
       beerPromises.push(
         createBeer(knex, {

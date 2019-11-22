@@ -339,7 +339,7 @@ const breweriesData = [
         beer: 'Third Eye P.A.',
         style: 'Pale Ale',
         abv: 6.0,
-        ibu: 65.1
+        ibu: 65
       },
       {
         beer: 'Prescribed Burn',
