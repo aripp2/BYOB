@@ -9,13 +9,14 @@ const database = require('knex')(configuration);
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.json());
+app.locals.title = 'Brews';
 
 app.listen(app.get('port'), () => {
   console.log(`App is running on ${app.get('port')}`);
 });
 
 app.get('/', (request, response) => {
-  response.event('Welcome to Brews!');
+  response.status(200).send('Welcome to Brews!');;
 }); 
 
 app.get('/api/v1/breweries', (request, response) => {
