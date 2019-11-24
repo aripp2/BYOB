@@ -4,9 +4,7 @@ const cors = require('cors');
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
-// console.log('configuration', configuration)
 const database = require('knex')(configuration);
-// console.log('database', database)
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.json());
@@ -22,6 +20,8 @@ app.get('/', (request, response) => {
   response.status(200).send('Welcome to Brews!');;
 }); 
 
+// get all breweries
+
 app.get('/api/v1/breweries', (request, response) => {
   database('breweries').select()
     .then((breweries) => {
@@ -30,7 +30,9 @@ app.get('/api/v1/breweries', (request, response) => {
     .catch((error) => {
       response.status(500).json({ error })
     })
-})
+});
+
+// get all beers
 
 app.get('/api/v1/beers', (request, response) => {
   database('beers').select()
@@ -40,7 +42,7 @@ app.get('/api/v1/beers', (request, response) => {
     .catch((error) => {
       response.status(500).json({ error })
     })
-})
+});
 
 // get all beers for a given brewery
 
@@ -58,7 +60,7 @@ app.get('/api/v1/beers/:brewery_id', (request, response) => {
     .catch(error => {
       response.status(500).json({ error })
     })
-})
+});
 
 // get a random beer
 
@@ -80,14 +82,35 @@ app.post('/api/v1/breweries', (request, response) => {
 
   database('breweries').insert(brewery, 'id')
     .then(brewery => {
-      response.status(201).json({ id: brewery[0]})
+      response.status(201).json({ id: brewery[0] })
     })
     .catch(error => {
       response.status(500).json({ error })
     });
-})
+});
 
 // add a beer to a brewery
 
+app.post('/api/v1/beers', (request, response) => {
+  const newBeer = request.body;
+  for (let requiredParameter of ['beer', 'style', 'abv', 'ibu', 'brewery_id']) {
+    if (!newBeer[requiredParameter]) {
+      return response
+      .status(422)
+      .send({ error: `Expected format: { beer: <String>, style: <String>, abv: <String>, ibu: <Integer>} brewery_id: <Integer>. You're missing a "${requiredParameter}" property`} )
+    }
+  }
+
+  database('beers').insert(newBeer, 'id')
+    .then(beer => {
+      response.status(201).json({ id: beer[0] })
+    })
+    .catch(error => {
+      response.status(500).json({ error })
+    });
+});
+
 // delete a brewery and all of its beers
 
+
+// app.delete('/api/v1/breweries')
