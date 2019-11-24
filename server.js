@@ -112,5 +112,31 @@ app.post('/api/v1/beers', (request, response) => {
 
 // delete a brewery and all of its beers
 
+app.delete('/api/v1/breweries', (request, response) => {
+  const badBrewId = request.body;
+  database('breweries')
+    .where({ id: badBrewId.id })
+    .select()
+    .then(brew => {
+      if (!brew.length) {
+        return response.status(205).send({ error: 'No brews to delete.'})
+      }
+    })
 
-// app.delete('/api/v1/breweries')
+  database('beers')
+    .where({ brewery_id: badBrewId.id})
+    .del()
+    .then(() => {
+      database('breweries') 
+        .where({ id: badBrewId.id })
+        .del()
+        .then(() => response.status(202).json({ message: 'Successfully deleted brewery and its beers.'}))
+      })
+    .catch(error => {
+      response.status(500).json({ error });
+    })
+});
+
+// delete a beer
+
+
