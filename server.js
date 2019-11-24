@@ -93,6 +93,7 @@ app.post('/api/v1/breweries', (request, response) => {
 
 app.post('/api/v1/beers', (request, response) => {
   const newBeer = request.body;
+
   for (let requiredParameter of ['beer', 'style', 'abv', 'ibu', 'brewery_id']) {
     if (!newBeer[requiredParameter]) {
       return response
@@ -113,9 +114,10 @@ app.post('/api/v1/beers', (request, response) => {
 // delete a brewery and all of its beers
 
 app.delete('/api/v1/breweries', (request, response) => {
-  const badBrewId = request.body;
+  const badBrew = request.body;
+
   database('breweries')
-    .where({ id: badBrewId.id })
+    .where({ id: badBrew.id })
     .select()
     .then(brew => {
       if (!brew.length) {
@@ -124,11 +126,11 @@ app.delete('/api/v1/breweries', (request, response) => {
     })
 
   database('beers')
-    .where({ brewery_id: badBrewId.id})
+    .where({ brewery_id: badBrew.id})
     .del()
     .then(() => {
       database('breweries') 
-        .where({ id: badBrewId.id })
+        .where({ id: badBrew.id })
         .del()
         .then(() => response.status(202).json({ message: 'Successfully deleted brewery and its beers.'}))
       })
@@ -139,4 +141,21 @@ app.delete('/api/v1/breweries', (request, response) => {
 
 // delete a beer
 
+app.delete('/api/v1/beers', (request, response) => {
+  const badBeer = request.body;
+
+  database('beers')
+    .where({ id: badBeer.id })
+    .select()
+    .then(beer => {
+      if (!beer.length) {
+        return response.status(205).send({ error: 'Could not find this beer.'})
+      }
+    })
+  
+  database('beers')
+    .where({ id: badBeer.id })
+    .del()
+    .then(() => response.status(202).json({ message: 'Successfully deleted the beer.'}))
+});
 
