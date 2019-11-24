@@ -5,6 +5,7 @@ const cors = require('cors');
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
+console.log(database('beers'))
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.json());
@@ -64,7 +65,19 @@ app.get('/api/v1/beers/:brewery_id', (request, response) => {
 
 // get a random beer
 
-// app.get('/api/v1/beers/')
+app.get('/api/v1/beers/random', (request, response) => {
+  console.log('fired')
+  database('beers').select()
+    .then(data => {
+      const count = data.length
+      const randomIndex = Math.floor(Math.random() * Math.floor(count - 1));
+      const randomBeer = data[randomIndex]
+      response.status(200).json(randomBeer);
+    })
+    .catch(error => {
+      response.status(500).json({ error })
+    })
+})
 
 
 // add a brewery
