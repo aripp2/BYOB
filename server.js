@@ -60,10 +60,32 @@ app.get('/api/v1/beers/:brewery_id', (request, response) => {
     })
 })
 
-// get all beers with an abv higher/lower than a given num
+// get a random beer
+
+// app.get('/api/v1/beers/')
 
 
 // add a brewery
+
+app.post('/api/v1/breweries', (request, response) => {
+  const brewery = request.body;
+
+  for (let requiredParameter of ['name', 'year_est', 'num_locations']) {
+    if (!brewery[requiredParameter]) {
+      return response
+      .status(422)
+      .send( { error: `Expected format: { name: <String>, year_est: <Integer>, num_locations: <Integer>}. You're missing a "${requiredParameter}" property`})
+    }
+  }
+
+  database('breweries').insert(brewery, 'id')
+    .then(brewery => {
+      response.status(201).json({ id: brewery[0]})
+    })
+    .catch(error => {
+      response.status(500).json({ error })
+    });
+})
 
 // add a beer to a brewery
 
