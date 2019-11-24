@@ -15,7 +15,7 @@ app.use(cors());
 app.locals.title = 'Brews';
 
 app.listen(app.get('port'), () => {
-  console.log(`App is running on ${app.get('port')}`);
+  console.log(`App is running on 'http://localhost:${app.get('port')}'`);
 });
 
 app.get('/', (request, response) => {
@@ -42,9 +42,26 @@ app.get('/api/v1/beers', (request, response) => {
     })
 })
 
+// get all beers for a given brewery
+
+app.get('/api/v1/beers/:brewery_id', (request, response) => {
+  let { brewery_id } = request.params;
+  let breweryId = parseInt(brewery_id)
+  database('beers').where('brewery_id', breweryId).select()
+    .then(data => {
+      if(data.length) {
+        response.status(200).json(data);
+      } else {
+        response.status(404).json({ error: 'Couldn\'t find any beers for the selected brewery.'});
+      }
+    })
+    .catch(error => {
+      response.status(500).json({ error })
+    })
+})
+
 // get all beers with an abv higher/lower than a given num
 
-// 
 
 // add a brewery
 
