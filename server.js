@@ -10,25 +10,23 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.json());
 app.use(cors());
 
-app.locals.title = 'Brews';
-
 app.listen(app.get('port'), () => {
   console.log(`App is running on 'http://localhost:${app.get('port')}'`);
 });
 
 app.get('/', (request, response) => {
-  response.status(200).send('Welcome to Brews!');;
+  response.status(200).send('Welcome to Brews!');
 }); 
 
 // get all breweries
 
 app.get('/api/v1/breweries', (request, response) => {
   database('breweries').select()
-    .then((breweries) => {
-      response.status(200).json(breweries)
+    .then(breweries => {
+      response.status(200).json(breweries);
     })
-    .catch((error) => {
-      response.status(500).json({ error })
+    .catch(error => {
+      response.status(500).json({ error });
     })
 });
 
@@ -36,11 +34,11 @@ app.get('/api/v1/breweries', (request, response) => {
 
 app.get('/api/v1/beers', (request, response) => {
   database('beers').select()
-    .then((beers) => {
-      response.status(200).json(beers)
+    .then(beers => {
+      response.status(200).json(beers);
     })
-    .catch((error) => {
-      response.status(500).json({ error })
+    .catch(error => {
+      response.status(500).json({ error });
     })
 });
 
@@ -49,13 +47,13 @@ app.get('/api/v1/beers', (request, response) => {
 app.get('/api/v1/beers/random', (request, response) => {
   database('beers').select()
     .then(data => {
-      const count = data.length
+      const count = data.length;
       const randomIndex = Math.floor(Math.random() * Math.floor(count - 1));
-      const randomBeer = data[randomIndex]
+      const randomBeer = data[randomIndex];
       response.status(200).json(randomBeer);
     })
     .catch(error => {
-      response.status(500).json({ error })
+      response.status(500).json({ error });
     })
 })
 
@@ -63,17 +61,18 @@ app.get('/api/v1/beers/random', (request, response) => {
 
 app.get('/api/v1/beers/:brewery_id', (request, response) => {
   let { brewery_id } = request.params;
-  let breweryId = parseInt(brewery_id)
+  let breweryId = parseInt(brewery_id);
+
   database('beers').where('brewery_id', breweryId).select()
     .then(data => {
-      if(data.length) {
+      if (data.length) {
         response.status(200).json(data);
       } else {
         response.status(404).json({ error: 'Could not find any beers for the selected brewery.' });
       }
     })
     .catch(error => {
-      response.status(500).json({ error })
+      response.status(500).json({ error });
     })
 });
 
@@ -93,11 +92,11 @@ app.post('/api/v1/breweries', (request, response) => {
 
   database('breweries').insert(brewery, 'id')
     .then(brewery => {
-      response.status(201).json({ id: brewery[0] })
+      response.status(201).json({ id: brewery[0] });
     })
     .catch(error => {
-      response.status(500).json({ error })
-    });
+      response.status(500).json({ error });
+    })
 });
 
 // add a beer to a brewery
@@ -109,17 +108,17 @@ app.post('/api/v1/beers', (request, response) => {
     if (!newBeer[requiredParameter]) {
       return response
       .status(422)
-      .send({ error: `Expected format: { beer: <String>, style: <String>, abv: <String>, ibu: <Integer>} brewery_id: <Integer>. You're missing a "${requiredParameter}" property` })
+      .send({ error: `Expected format: { beer: <String>, style: <String>, abv: <String>, ibu: <Integer>} brewery_id: <Integer>. You're missing a "${requiredParameter}" property` });
     }
   }
 
   database('beers').insert(newBeer, 'id')
     .then(beer => {
-      response.status(201).json({ id: beer[0] })
+      response.status(201).json({ id: beer[0] });
     })
     .catch(error => {
-      response.status(500).json({ error })
-    });
+      response.status(500).json({ error });
+    })
 });
 
 // delete a brewery and all of its beers
@@ -132,7 +131,7 @@ app.delete('/api/v1/breweries/:id', (request, response) => {
     .select()
     .then(brew => {
       if (!brew.length) {
-        return response.status(205).send({ error: 'Could not find the requested brewery, unable to delete.'})
+        return response.status(404).send({ error: 'Could not find the requested brewery, unable to delete.'});
       }
     })
 
@@ -160,7 +159,7 @@ app.delete('/api/v1/beers/:id', (request, response) => {
     .select()
     .then(beer => {
       if (!beer.length) {
-        return response.status(205).send({ error: 'Could not find the requested beer, unable to delete.'})
+        return response.status(404).send({ error: 'Could not find the requested beer, unable to delete.'});
       }
     })
   

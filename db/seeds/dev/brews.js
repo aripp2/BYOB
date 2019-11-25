@@ -20,12 +20,12 @@ const createBrewery = (knex, brewery) => {
         })
       )
     });
-    return Promise.all(beerPromises)
+    return Promise.all(beerPromises);
   })
 };
 
 const createBeer = (knex, beer) => {
-  return knex('beers').insert(beer)
+  return knex('beers').insert(beer);
 };
 
 exports.seed = function(knex) {
@@ -37,7 +37,7 @@ exports.seed = function(knex) {
       breweriesData.forEach(brewery => {
         breweryPromises.push(createBrewery(knex, brewery))
       })
-      return Promise.all(breweryPromises)
+      return Promise.all(breweryPromises);
     })
     .catch(error => console.log(`Error seeding data: ${error}`))
 };
