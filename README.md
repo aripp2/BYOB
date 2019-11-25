@@ -1,6 +1,13 @@
 # Brews BYOB: Build Your Own Backend
+Built by [Amy Rippeto](https://github.com/aripp2) 
 
+As a student in the Front-End Engineering Program at Turing school of software and design, this was my first project working in the back-end. This was an opportunity to become familiar with building a database with **Express**, **Knex** and **PostgreSQL** and a well documented **RESTfulAPI**. The focus was on working with a one-to-many relational database schema design as well as using appropriate status codes and error handling.
 
+I created the seed dataset for Breweries, giving each of them an array of relevant beers. This allowed me to implement two seperate tables, related by the brewery id.
+
+### [Deployed on Heroku](https://byob-brews.herokuapp.com/)
+
+### [Sprint Project Board](https://github.com/aripp2/BYOB/projects/1)
 
 ### Endpoints
 
@@ -16,6 +23,7 @@
 | Delete a brewery and all of its beers | `/api/v1/breweries/:id` `:id` should be replaced with integer `id` of selected brewery | DELETE | none | 204 Status Code & `{ message: 'Successfully deleted brewery and its beers.'}` |
 
 
+#### Cheers!
 
 
 
