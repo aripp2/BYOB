@@ -124,8 +124,8 @@ app.post('/api/v1/beers', (request, response) => {
 
 // delete a brewery and all of its beers
 
-app.delete('/api/v1/breweries', (request, response) => {
-  const badBrew = request.body;
+app.delete('/api/v1/breweries/:id', (request, response) => {
+  const badBrew = request.params;
 
   database('breweries')
     .where({ id: badBrew.id })
@@ -152,8 +152,8 @@ app.delete('/api/v1/breweries', (request, response) => {
 
 // delete a beer
 
-app.delete('/api/v1/beers', (request, response) => {
-  const badBeer = request.body;
+app.delete('/api/v1/beers/:id', (request, response) => {
+  const badBeer = request.params;
 
   database('beers')
     .where({ id: badBeer.id })
