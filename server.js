@@ -69,7 +69,7 @@ app.get('/api/v1/beers/:brewery_id', (request, response) => {
       if(data.length) {
         response.status(200).json(data);
       } else {
-        response.status(404).json({ error: 'Couldn\'t find any beers for the selected brewery.'});
+        response.status(404).json({ error: 'Could not find any beers for the selected brewery.' });
       }
     })
     .catch(error => {
@@ -87,7 +87,7 @@ app.post('/api/v1/breweries', (request, response) => {
     if (!brewery[requiredParameter]) {
       return response
       .status(422)
-      .send( { error: `Expected format: { name: <String>, year_est: <Integer>, num_locations: <Integer>}. You're missing a "${requiredParameter}" property`})
+      .send( { error: `Expected format: { name: <String>, year_est: <Integer>, num_locations: <Integer>}. You're missing a "${requiredParameter}" property` })
     }
   }
 
@@ -109,7 +109,7 @@ app.post('/api/v1/beers', (request, response) => {
     if (!newBeer[requiredParameter]) {
       return response
       .status(422)
-      .send({ error: `Expected format: { beer: <String>, style: <String>, abv: <String>, ibu: <Integer>} brewery_id: <Integer>. You're missing a "${requiredParameter}" property`} )
+      .send({ error: `Expected format: { beer: <String>, style: <String>, abv: <String>, ibu: <Integer>} brewery_id: <Integer>. You're missing a "${requiredParameter}" property` })
     }
   }
 
@@ -132,7 +132,7 @@ app.delete('/api/v1/breweries/:id', (request, response) => {
     .select()
     .then(brew => {
       if (!brew.length) {
-        return response.status(205).send({ error: 'No brews to delete.'})
+        return response.status(205).send({ error: 'Could not find the requested brewery, unable to delete.'})
       }
     })
 
@@ -143,7 +143,7 @@ app.delete('/api/v1/breweries/:id', (request, response) => {
       database('breweries') 
         .where({ id: badBrew.id })
         .del()
-        .then(() => response.status(202).json({ message: 'Successfully deleted brewery and its beers.'}))
+        .then(() => response.status(202).json({ message: 'Successfully deleted the brewery and its beers.'}))
       })
     .catch(error => {
       response.status(500).json({ error });
@@ -160,7 +160,7 @@ app.delete('/api/v1/beers/:id', (request, response) => {
     .select()
     .then(beer => {
       if (!beer.length) {
-        return response.status(205).send({ error: 'Could not find this beer.'})
+        return response.status(205).send({ error: 'Could not find the requested beer, unable to delete.'})
       }
     })
   
@@ -168,5 +168,8 @@ app.delete('/api/v1/beers/:id', (request, response) => {
     .where({ id: badBeer.id })
     .del()
     .then(() => response.status(202).json({ message: 'Successfully deleted the beer.'}))
+    .catch(error => {
+      response.status(500).json({ error });
+    })
 });
 
